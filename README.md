@@ -1,5 +1,6 @@
 This is a custom/alternative string manipulation libary.
-<It's meant to be a DIY STRLIB
+It's meant to be a DIY STRLIB
+
 /*
  * DISCLAIMER:
  * OSD is not responsible for any damages caused by buffer overflow or improper usage.
