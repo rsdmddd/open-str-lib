@@ -1,19 +1,18 @@
-#ifndef MYLIB_H
-#define MYLIB_H
+#ifndef STRLIB_H
+#define STRLIB_H
 
 #include <stddef.h>
-
 
 size_t strlen(const char *str); //COMPLETED
 char* strcpy(char *dest, const char *src); //COMPLETED
 char* nstrcpy(char *dest, const char *src, size_t n);
 char* strncpy(char *dest, const char *src, size_t n); //COMPLETED
-int bstring(const char *str1, const char *str2); //COMPLETED
-int strcmp(const char *str1, const char *str2);
-int strncmp(const char *str1, const char *str2, size_t n);
-int astrcmp(const char *str1, const char *str2);
-int nastrcmp(const char *str1, const char *str2);
-char* strcat(char *dest, const char *src);
+int bstr(const char *str1, const char *str2); //COMPLETED
+int strcmp(const char *str1, const char *str2); //COMPLETED
+int strncmp(const char *str1, const char *str2, size_t n); //COMPLETED
+/*int astrcmp(const char *str1, const char *str2); SCRAPPED
+int nastrcmp(const char *str1, const char *str2);  SCRAPPED */
+char* strcat(char *dest, const char *src); // COMPLETED
 char* strncat(char *dest, const char *src, size_t n);
 char* strdup(const char *str);
 char* strchr(const char *str, int c);
