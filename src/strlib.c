@@ -78,16 +78,8 @@ size_t nstrcmp(const char *str1, const char *str2, size_t n) {
   return str2Len - str1Len - n;  // why subtract n? can wraparound if n is too big.
 }
 
-// concatenate at the end of *dest?
+// ooh danger 
 char* strcat(const char src, char *dest) {
-  /*size_t numitems = 0;
-  char *pDestBase = dest + strlen(*dest);
-  
-  while (*src[numitems] != '\0') {
-    pDestBase[numitems] = src[numitems];
-    numitems++;
-  }*/
-
   char *pDestEnd = dest + strlen(dest);
 
   size_t i = 0;
