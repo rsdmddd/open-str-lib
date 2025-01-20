@@ -11,11 +11,11 @@
  * This code is free software; you can redistribute it and/or modify it!
  */
 
-//TODO: nstrcat
+// TODO: nstrcat
 
 #include "strlib.h"
 
-//Get the length of a string
+// Get the length of a string
 size_t strlen(const char *str) {
     size_t length = 0;
     while (str[length] != '\0') {
@@ -24,7 +24,7 @@ size_t strlen(const char *str) {
     return length;
 }
 
-//Copy string to a destination
+// Copy string to a destination
 char* strcpy(char *dest, const char *src) {
   while(*src != '\0') {
     *dest = *src;
@@ -34,76 +34,68 @@ char* strcpy(char *dest, const char *src) {
   return dest;
 }
 
-//Copy string characters to a destination N times
+// Copy string characters to a destination N times
 char* nstrcpy(char *dest, const char *src, size_t n) {
   size_t numtimes = 0;
-  while(*src != '\0' && n > numtimes) {
+  while (*src != '\0' && n > numtimes) {
     *dest = *src;
     dest++, src++;
     numtimes++;
   }
   *dest = '\0';
-  return dest; //OPTIONALLY return DEST
+  return dest;  // OPTIONALLY return DEST
 }
 
-//Return a integer based on the size
+// Return a integer based on the size
 int bstr(const char *str1, const char *str2) {
-  while(*str1 != '\0' || *str2 != '\0') { //if either of them dont have null
-    str1++;
-    str2++;
-  }
-  if (str1 != '\0') {
+  while (*str1 != '\0' && *str2 != '\0')
+    str1++, str2++;
+
+  if (*str1 == *str2)  // equal
+    return 0;
+  if (*str1 == '\0')  // str1 < str2
     return 1;
-  }
-  else if (str2 != '\0') {
-    return -1;
-  }
-  return 0;
+  return -1;  // str1 > str2
 }
 
-//Get the difference in size between 2 strings biased towards the dominant one
+// Get the difference in length between the strings.
 size_t strcmp(const char *str1, const char *str2) {
-  size_t num_str1_times = 0;
-  size_t num_str2_times = 0;
-  while(*str1 != '\0') {
-    num_str1_times++;
-    str1++;
-  }
-  while(*str2 != '\0') {
-    num_str2_times++;
-    str2++
-  }
-  if(num_str1_times > num_str2_times) {
-    return num_str1_times - num_str2_times;
-  }
-  return num_str2_times - num_str1_times
+  size_t str1Len = strlen(str1);
+  size_t str2Len = strlen(str2);
+
+  if (str1Len > str2Len)
+    return str1Len - str2Len;
+  return str2Len - str1Len;
 }
 
+// no comment here?
 size_t nstrcmp(const char *str1, const char *str2, size_t n) {
-  size_t num_str1_times = 0;
-  size_t num_str2_times = 0;
-  while(*str1 != '\0') {
-    num_str1_times++;
-    str1++;
-  }
-  while(*str2 != '\0') {
-    num_str2_times++;
-    str2++
-  }
-  if(num_str1_times > num_str2_times) {
-    return num_str1_times - num_str2_times;
-  }
-  return (num_str2_times - num_str1_times - n);
+  size_t str1Len = strlen(str1);
+  size_t str2Len = strlen(str2);
+
+  if (str1Len > str2Len)
+    return str1Len - str2Len - n;
+  return str2Len - str1Len - n;  // why subtract n? can wraparound if n is too big.
 }
 
-char* strcat(const char *src, char *dest) {
-  size_t numtimes = 0;
+// concatenate at the end of *dest?
+char* strcat(const char src, char *dest) {
+  /*size_t numitems = 0;
   char *pDestBase = dest + strlen(*dest);
-  while (*src[numtimes] != '\0')
-  {
-    pDestBase[numtimes] = src[numtimes];
-    numtimes++
-  }
+  
+  while (*src[numitems] != '\0') {
+    pDestBase[numitems] = src[numitems];
+    numitems++;
+  }*/
+
+  char *pDestEnd = dest + strlen(dest);
+
+  size_t i = 0;
+  for (; src[i] != '\0'; i++)
+    pDestEnd[i] = src[i];
+  pDestEnd[i] = '\0';
+
+  return dest;
 }
 
 //TODO: nstrcat
