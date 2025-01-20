@@ -48,8 +48,9 @@ char* nstrcpy(char *dest, const char *src, size_t n) {
 
 // Return a integer based on the size
 int bstr(const char *str1, const char *str2) {
-  while (*str1 != '\0' && *str2 != '\0')
+  while (*str1 != '\0' && *str2 != '\0') {
     str1++, str2++;
+  }
 
   if (*str1 == *str2)  // equal
     return 0;
