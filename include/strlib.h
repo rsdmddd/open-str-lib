@@ -13,9 +13,9 @@ int strncmp(const char *str1, const char *str2, size_t n); //COMPLETED
 /*int astrcmp(const char *str1, const char *str2); SCRAPPED
 int nastrcmp(const char *str1, const char *str2);  SCRAPPED */
 char* strcat(char *dest, const char *src); // COMPLETED
-char* strncat(char *dest, const char *src, size_t n);
-char* strdup(const char *str);
-char* strchr(const char *str, int c);
+char* strncat(char *dest, const char *src, size_t n); // COMPLETED
+inline char* strdup(const char *src); // COMPLETED
+char* strchr(const char *str, int c); // COMPLETED
 char* strrchr(const char *str, int c);
 char* strstr(const char *haystack, const char *needle);
 

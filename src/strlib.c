@@ -74,10 +74,11 @@ size_t nstrcmp(const char *str1, const char *str2, size_t n) {
 
   if (str1Len > str2Len)
     return str1Len - str2Len - n;
-  return str2Len - str1Len - n;  // why subtract n? can wraparound if n is too big. WILL ADD SAFETY
+  return str2Len - str1Len - n;  /* why subtract n? can wraparound if n is too big.
+                                    doesnt matter, user must use it properly */
 }
 
-// ooh danger 
+// strcat
 char* strcat(const char src, char *dest) {
   char *pDestEnd = dest + strlen(dest);
 
@@ -89,6 +90,7 @@ char* strcat(const char src, char *dest) {
   return dest;
 }
 
+//strcat N times
 char* strncat(const char src, char *dest) {
   char *pDestEnd = dest + strlen(dest);
 
@@ -100,8 +102,26 @@ char* strncat(const char src, char *dest) {
   return dest;
 }
 
-void* readUnionPointerChain(const ) {
-  
+inline char* strdup(const char *src) {
+  size_t len = strlen(*src) + 1;
+  char *dup = malloc(len);
+  strcpy(dup, src);
+  return dup;
+}
+
+//Return a pointer to the first occurence of c in str
+char* strchr(const char *str, int c) {
+  while (*str != '\0' && *str != c)
+    str++
+  return str + 1;
+}
+
+//Return a pointer to the first occurence of c in str N times
+char* strchr(const char *str, int c, size_t n) {
+  size_t numtimes = 0;
+  while (*str != '\0' && *str != c && n > numtimes)
+    str++, numtimes++;
+  return str + 1;
 }
 
 //TODO: nstrcat
