@@ -5,7 +5,6 @@
 
 size_t strlen(const char *str); //COMPLETED
 char* strcpy(char *dest, const char *src); //COMPLETED
-char* nstrcpy(char *dest, const char *src, size_t n);
 char* strncpy(char *dest, const char *src, size_t n); //COMPLETED
 int bstr(const char *str1, const char *str2); //COMPLETED
 int strcmp(const char *str1, const char *str2); //COMPLETED
@@ -14,8 +13,9 @@ int strncmp(const char *str1, const char *str2, size_t n); //COMPLETED
 int nastrcmp(const char *str1, const char *str2);  SCRAPPED */
 char* strcat(char *dest, const char *src); // COMPLETED
 char* strncat(char *dest, const char *src, size_t n); // COMPLETED
-inline char* strdup(const char *src); // COMPLETED
+char* strdup(const char *src); // COMPLETED
 char* strchr(const char *str, int c); // COMPLETED
+char* strnchr(const char *str, int c); // COMPLETED
 char* strrchr(const char *str, int c);
 char* strstr(const char *haystack, const char *needle);
 
