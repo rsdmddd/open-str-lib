@@ -18,9 +18,8 @@
 // Get the length of a string
 size_t strlen(const char *str) {
     size_t length = 0;
-    while (str[length] != '\0') {
+    while (str[length] != '\0')
         length++;
-    }
     return length;
 }
 
@@ -48,9 +47,8 @@ char* nstrcpy(char *dest, const char *src, size_t n) {
 
 // Return a integer based on the size
 int bstr(const char *str1, const char *str2) {
-  while (*str1 != '\0' && *str2 != '\0') {
+  while (*str1 != '\0' && *str2 != '\0')
     str1++, str2++;
-  }
 
   if (*str1 == *str2)  // equal
     return 0;
@@ -69,14 +67,14 @@ size_t strcmp(const char *str1, const char *str2) {
   return str2Len - str1Len;
 }
 
-// no comment here?
+// Get the difference in length between the strings N times
 size_t nstrcmp(const char *str1, const char *str2, size_t n) {
   size_t str1Len = strlen(str1);
   size_t str2Len = strlen(str2);
 
   if (str1Len > str2Len)
     return str1Len - str2Len - n;
-  return str2Len - str1Len - n;  // why subtract n? can wraparound if n is too big.
+  return str2Len - str1Len - n;  // why subtract n? can wraparound if n is too big. WILL ADD SAFETY
 }
 
 // ooh danger 
@@ -89,6 +87,21 @@ char* strcat(const char src, char *dest) {
   pDestEnd[i] = '\0';
 
   return dest;
+}
+
+char* strncat(const char src, char *dest) {
+  char *pDestEnd = dest + strlen(dest);
+
+  size_t i = 0;
+  for (; src[i] != '\0' && n > i; i++)
+    pDestEnd[i] = src[i];
+  pDestEnd[i] = '\0';
+
+  return dest;
+}
+
+void* readUnionPointerChain(const ) {
+  
 }
 
 //TODO: nstrcat
