@@ -1,35 +1,32 @@
-#ifndef STRLIB_H
-#define STRLIB_H
+/*
+ * DISCLAIMER:
+ * OSD is not responsible for any damages caused by memory leaks, buffer overflows, etc.
+ * The user is responsible for ensuring that input strings are properly null-terminated.
+ * 
+ * HEADER FILE FOR strlib (strlib.h)
+ * COMPATIBLE FOR C VERSIONS BEFORE 1999 (C99)
+ * 
+ * OSD - Open-Sourced Development
+ * 2025 OSD. All rights reserved.
+ * This code is free software; you can redistribute it and/or modify it!
+ */
 
-#include <stddef.h>
-
-size_t strlen(const char *str); //COMPLETED
-char* strcpy(char *dest, const char *src); //COMPLETED
-char* strncpy(char *dest, const char *src, size_t n); //COMPLETED
-int bstr(const char *str1, const char *str2); //COMPLETED
-int strcmp(const char *str1, const char *str2); //COMPLETED
-int strncmp(const char *str1, const char *str2, size_t n); //COMPLETED
-/*int astrcmp(const char *str1, const char *str2); SCRAPPED
-int nastrcmp(const char *str1, const char *str2);  SCRAPPED */
-char* strcat(char *dest, const char *src); // COMPLETED
-char* strncat(char *dest, const char *src, size_t n); // COMPLETED
-char* strdup(const char *src); // COMPLETED
-char* strchr(const char *str, int c); // COMPLETED
-char* strnchr(const char *str, int c); // COMPLETED
-char* strrchr(const char *str, int c);
-char* strstr(const char *haystack, const char *needle);
-
-void* malloc(size_t size);
-void free(void *ptr);
-void* realloc(void *ptr, size_t new_size);
-void* calloc(size_t num, size_t size);
-void exit(int status);
-
-int atoi(const char *str);
-char* itoa(int num, char *str, int base);
-
-int abs(int x);
-void qsort(void *base, size_t num_elements, size_t element_size, int (*cmp)(const void *, const void *));
-void* bsearch(const void *key, const void *base, size_t num_elements, size_t element_size, int (*cmp)(const void *, const void *));
-
-#endif
+size_t strlen(const char* str);
+size_t strequal(const char* str1, const char* str2);
+char* strcpy(char* dest, const char* src);
+char* strncpy(char* dest, const char* src, const size_t n);
+int cmpstr(const char* str1, const char* str2);
+size_t strdiff(const char* str1, const char* str2);
+size_t strndiff(const char* str1, const char* str2, const size_t n);
+inline char*strcat(const char* src, const char* dest);
+char* strncat(const char* src, const char* dest, const size_t n);
+char* strdup(const char* src);
+char* strchr(char* str, const int c);
+char* strnchr(char* str, const int c, const size_t n);
+char* strrstr(char* str, const int c);
+int strstr(const char* haystack, const char* needle);
+char* strreplace(char* str, const char* old, const char* new_str);
+char* reverse(char* str);
+char* trim(char* str, size_t index);
+void bsort(int* arr, size_t len);
+void* readptrchain(void* arr, size_t P_SIZE, size_t ARR_SIZE);
