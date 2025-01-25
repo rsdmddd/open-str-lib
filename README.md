@@ -3,7 +3,7 @@ It probably isn't more efficient or better then the default, however
 it has more features and safety.
 
 Licensed under MIT.
-\
+
 OSD - Open-Sourced Development
 2025 OSD. All rights reserved.
-/
+
