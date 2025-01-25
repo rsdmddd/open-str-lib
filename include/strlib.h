@@ -28,5 +28,6 @@ int strstr(const char* haystack, const char* needle);
 char* strreplace(char* str, const char* old, const char* new_str);
 char* reverse(char* str);
 char* trim(char* str, size_t index);
+//void* toString(void* VALUE); //SCRAPPED MAYBE FOR NOW
 void bsort(int* arr, size_t len);
 void* readptrchain(void* arr, size_t P_SIZE, size_t ARR_SIZE);

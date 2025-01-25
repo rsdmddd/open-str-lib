@@ -180,9 +180,9 @@ char* trim(char* str, size_t index) {
   str[index] = '\0';
 }
 
-void* toString(void* VALUE) {
+//void* toString(void* VALUE) {
   
-}
+//}
 // Bubble sort an integer array with a given length
 void bsort(int* arr, size_t len) {
   for (size_t i = 0; len - 1 > i; i++) {
