@@ -15,6 +15,7 @@
 
 // Return the length of [str]. no nt
 size_t strlen(const char* str) {
+  if(str==NULL) return SIZE_MAX;
   size_t length = 0;
   while (str[length] != '\0')
     length++;
@@ -23,6 +24,7 @@ size_t strlen(const char* str) {
 
 //Check if [str1] is equal to [str2].
 size_t strequal(const char* str1, const char* str2) {
+  if(str1==NULL||str2==NULL) return SIZE_MAX;
   size_t strLen = strlen(*str1);
   if(strLen != strlen(*str2)) return -1;
   for (int i = 0; strLen >= i; i++)
@@ -32,6 +34,7 @@ size_t strequal(const char* str1, const char* str2) {
 
 // Copy [src] to [dest] and return [dest] as the end of the string.
 char* strcpy(char* dest, const char* src) {
+  if(dest==NULL||src==NULL) return SIZE_MAX;
   while(*src != '\0') {
     *dest = *src;
     dest++, src++;
@@ -42,6 +45,7 @@ char* strcpy(char* dest, const char* src) {
 
 // Copy at most [n] characters from [src] to [dest].
 char* strncpy(char* dest, const char* src, const size_t n) {
+  if(dest==NULL||src==NULL) return SIZE_MAX;
   size_t count = 0;
   while(*src != '\0' && n > count) {
     *dest = *src;
@@ -53,6 +57,7 @@ char* strncpy(char* dest, const char* src, const size_t n) {
 
 // Return a integer based on their length, biased on str1.
 int cmpstr(const char* str1, const char* str2) {
+  if(str1==NULL||str2==NULL) return SIZE_MAX;
   while (*str1 != '\0' && *str2 != '\0')
     str1++, str2++;
   if (*str1 == *str2)  // equal
@@ -64,6 +69,7 @@ int cmpstr(const char* str1, const char* str2) {
 
 // Return the absolute difference in length between the strings.
 size_t strdiff(const char* str1, const char* str2) {
+  if(str1==NULL||str2==NULL) return SIZE_MAX;
   size_t str1Len = strlen(str1);
   size_t str2Len = strlen(str2);
   if (str1Len > str2Len)
@@ -73,6 +79,7 @@ size_t strdiff(const char* str1, const char* str2) {
 
 // UNDERFLOW RISK Return the absolute difference in length between the strings, offset by [n]; SiZE_MAX when [n] > strdiff(str1, str2).
 size_t strndiff(const char* str1, const char* str2, const size_t n) {
+  if(str1==NULL||str2==NULL) return SIZE_MAX;
   size_t str1Len = strlen(str1);
   size_t str2Len = strlen(str2);
   if (str1Len > str2Len && str1Len >= n)
@@ -83,24 +90,26 @@ size_t strndiff(const char* str1, const char* str2, const size_t n) {
 }
 
 // Append [src] at the end of [dest] and return [dest].
-inline *strcat(const char* src, const char* dest) {
+char* strcat(const char* src, const char* dest) {
+  if(str1==NULL||str2==NULL) return SIZE_MAX;
   return strcpy(dest + strlen(dest), src);
 }
 
 // Append [src] at the end of [dest], [n] times and return new string.
 char* strncat(const char* src, const char* dest, const size_t n) {
+  if(src==NULL||dest==NULL) return SIZE_MAX;
   size_t destLen = strlen(dest);
   size_t srcLen = strlen(src);
   char* heapDest = malloc(destLen + srcLen * n);
   strcpy(heapDest, dest);
   for (size_t i = 0; i < n; i++)
     strcpy(pNew + destLen + srcLen * i, scr);
-
   return pNew;
 }
 
 // Allocate a duplicate of [src] and return it. 
 char* strdup(const char* src) {
+  if(src==NULL) return SIZE_MAX;
   char* dup = malloc(strlen(src));
   strcpy(dup, src);
   return dup;
@@ -174,6 +183,7 @@ char* reverse(char* str) {
 }
 
 char* trim(char* str, size_t index) {
+  if(str==NULL||index==NULL) return NULL; 
   for (; str[index] != '0'; index++) {
     str[index] = ' ';
   }
