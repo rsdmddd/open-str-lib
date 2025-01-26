@@ -1,4 +1,6 @@
-OSL (Open String Libary) is a reimplementation of one of C's default libaries (strlib).
+# OSL (Open String Libary)
+
+A reimplementation of one of C's default libaries (strlib).
 It probably isn't more efficient or better then the default, however
 it has more features and safety.
 
